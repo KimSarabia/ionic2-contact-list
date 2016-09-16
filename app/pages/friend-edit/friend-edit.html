@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Edit</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>First Name</h2>
+  <ion-textarea #updatedFriend value="{{friend.firstName}}"></ion-textarea>
+
+  <ion-row>
+    <ion-col width-40>
+      <button block (click)="saveFriend(updatedFirstName.value)">
+        Save
+      </button>
+    </ion-col>
+    <ion-col width-40>
+      <button light block nav-pop>
+        Cancel
+      </button>
+    </ion-col>
+    <ion-col width-20>
+      <button danger block (click)="deleteFriend()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>

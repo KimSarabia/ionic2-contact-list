@@ -49,5 +49,6 @@
     }
   ],
   "name": "friends-ionic2-heroku",
-  "description": "friends-ionic2-heroku: An Ionic project"
+  "description": "friends-ionic2-heroku: An Ionic project",
+  "start":"server.js"
 }

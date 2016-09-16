@@ -1,14 +1,34 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar primary>
     <ion-title>
-      Ionic Blank
+      MEAN Ionic 2 Friend App
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="home" padding>
+
+  <h2>Add a Friend</h2>
+  <ion-item no-lines>
+    <ion-input #newFriend (keyup.enter)="addFriend(newFriend.value); newFriend.value=''" type="text" placeholder="Add new friend..." ></ion-input>
+    <button clear large item-right (click)="addFriend(newFriend.value); newFriend.value=''">
+      <ion-icon name="add"> </ion-icon>
+    </button>
+  </ion-item>
+
+  <h2>Friend List <small>Swipe a friend to edit or delete</small></h2>
+  <ion-list no-lines>
+    <ion-item-sliding #slidingItem *ngFor="let friend of friends; let index = index">
+        <ion-item text-wrap item-left>
+          {{ friend.firstName }}
+        </ion-item>
+      <ion-item-options (ionSwipe)="navToEdit(friend, index); slidingItem.close()">
+        <button (click)="navToEdit(friend, index); slidingItem.close()">Edit</button>
+        <button danger (click)="deleteFriend(friend, index)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
 </ion-content>

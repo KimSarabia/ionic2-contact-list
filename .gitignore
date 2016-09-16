@@ -1,0 +1,5 @@
+#.gitignore
+node_modules/
+platforms/
+plugins/
+.DS_Store

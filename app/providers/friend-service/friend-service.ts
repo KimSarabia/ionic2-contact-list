@@ -15,8 +15,8 @@ export class FriendService {
                .map(res => res.json())
                .catch(this.handleError);
   }
-  add(friend: string): Observable<Friend> {
-    let body = JSON.stringify({firstName: friend, lastName: friend, email: friend, phone: friend, bio: friend, imgUrl: friend});
+  add(friend: Friend): Observable<Friend> {
+    let body = JSON.stringify(friend);
     let headers = new Headers({'Content-Type': 'application/json'});
 
     return this.http.post(this.friendsUrl, body, {headers: headers})

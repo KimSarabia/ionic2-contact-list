@@ -1,12 +1,20 @@
-<ion-header>
+
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav><ion-header>
   <ion-navbar primary>
-    <ion-title>
-      Dashboard
-    </ion-title>
+    <button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Dashboard</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="dashboard" padding>
 DASHBOARD
+<button menuToggle>Menu</button>
 
 </ion-content>

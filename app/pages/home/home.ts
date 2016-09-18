@@ -1,6 +1,8 @@
 import {Component} from "@angular/core";
 import {NavController, ItemSliding, Item} from 'ionic-angular';
 import {FriendEditPage} from '../friend-edit/friend-edit';
+import {FriendAddPage} from '../friend-add/friend-add';
+
 import {FriendService} from '../../providers/friend-service/friend-service';
 import {Friend} from '../../friend.ts';
 
@@ -23,21 +25,6 @@ export class HomePage {
       })
   }
 
-  addFriend(friend:string) {
-    this.friendService.add(friend)
-        .subscribe(newFriend  => {
-          this.friends.push(newFriend);
-        });
-  }
-
-  // toggleComplete(friend: Friend) {
-  //   friend.isComplete = !friend.isComplete;
-  //   this.friendService.update(friend)
-  //       .subscribe(updatedFriend => {
-  //         friend = updatedFriend;
-  //       });
-  // }
-
   deleteFriend(friend: Friend, index:number) {
     this.friendService.delete(friend)
         .subscribe(res => {
@@ -47,6 +34,14 @@ export class HomePage {
 
   navToEdit(friend: Friend, index: number) {
     this.nav.push(FriendEditPage, {
+      friend: friend,
+      friends: this.friends,
+      index: index
+    });
+  }
+
+  navToAdd(friend: Friend, index: number) {
+    this.nav.push(FriendAddPage, {
       friend: friend,
       friends: this.friends,
       index: index

@@ -8,9 +8,16 @@
 
   <h2>Add a Friend</h2>
   <ion-item no-lines>
-    <ion-input #newFriend (keyup.enter)="addFriend(newFriend.value); newFriend.value=''" type="text" placeholder="Add new friend..." ></ion-input>
-    <button clear large item-right (click)="addFriend(newFriend.value); newFriend.value=''; navToHome(friend, index);">
+    <ion-input #firstName type="text" placeholder="First Name" ></ion-input>
+    <ion-input #lastName type="text" placeholder="Last Name" ></ion-input>
+    <ion-input #lastName type="text" placeholder="Last Name" ></ion-input>
+
+
+    <button clear large item-right (click)="addFriend(firstName.value, lastName.value); firstName.value=''; lastName.value=''">
       <ion-icon name="add"> </ion-icon>
     </button>
   </ion-item>
+  <button block (click)="navToHome(friend, index);">
+    Back
+  </button>
 </ion-content>

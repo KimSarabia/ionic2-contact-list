@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Add</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="add" padding>
+
+  <h2>Add a Friend</h2>
+  <ion-item no-lines>
+    <ion-input #newFriend (keyup.enter)="addFriend(newFriend.value); newFriend.value=''" type="text" placeholder="Add new friend..." ></ion-input>
+    <button clear large item-right (click)="addFriend(newFriend.value); newFriend.value=''; navToHome(friend, index);">
+      <ion-icon name="add"> </ion-icon>
+    </button>
+  </ion-item>
+</ion-content>

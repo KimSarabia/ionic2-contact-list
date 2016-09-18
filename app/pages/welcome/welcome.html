@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Welcome</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="welcome" padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>First Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Last Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Email</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <!-- <button primary block>Sign In</button> -->
+    <button (click)="navToDash(friend, index)">Sign In</button>
+
+  </div>
+
+</ion-content>

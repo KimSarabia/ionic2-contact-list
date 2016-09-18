@@ -4,9 +4,9 @@ Friend/Contact List
 
 ## Installation
 Download or git clone
-`npm install`
-`ionic serve`
-`nodemon server.js`
+* `npm install`
+* `ionic serve`
+* `nodemon server.js`
 
 ## Usage
 * Add Friend

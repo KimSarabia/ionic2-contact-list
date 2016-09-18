@@ -8,6 +8,7 @@ import {Friend} from '../../friend.ts';
   templateUrl: 'build/pages/welcome/welcome.html',
   providers: [FriendService]
 })
+
 export class WelcomePage {
   public friends: Friend[];
 

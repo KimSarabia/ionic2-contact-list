@@ -6,11 +6,21 @@
 
 <ion-content padding>
   <h2>First Name</h2>
-  <ion-textarea #updatedFriend value="{{friend.firstName}}"></ion-textarea>
+  <ion-textarea #updatedFirstName value="{{friend.firstName}}"></ion-textarea>
+  <h2>Last Name</h2>
+  <ion-textarea #updatedLastName value="{{friend.lastName}}"></ion-textarea>
+  <h2>Phone</h2>
+  <ion-textarea #updatedPhone value="{{friend.phone}}"></ion-textarea>
+  <h2>Email</h2>
+  <ion-textarea #updatedEmail value="{{friend.email}}"></ion-textarea>
+  <h2>Bio</h2>
+  <ion-textarea #updatedBio value="{{friend.bio}}"></ion-textarea>
+  <h2>Image URL</h2>
+  <ion-textarea #updatedImgUrl value="{{friend.imgURL}}"></ion-textarea>
 
   <ion-row>
     <ion-col width-40>
-      <button block (click)="saveFriend(updatedFirstName.value)">
+      <button block (click)="saveFriend(updatedFirstName.value, updatedLastName.value, updatedPhone.value, updatedEmail.value, updatedBio.value, updatedImgUrl.value); firstName.value=''; lastName.value=''; email.value=''; phone.value=''; bio.value=''; imgUrl.value='';">
         Save
       </button>
     </ion-col>

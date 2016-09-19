@@ -29,7 +29,7 @@ export class FriendService {
     let headers = new Headers({'Content-Type': 'application/json'});
 
     return this.http.put(url, body, {headers: headers})
-                    .map(() => friend) //See mdn.io/arrowfunctions
+                    .map(() => friend)
                     .catch(this.handleError);
   }
   delete(friend: Friend) {

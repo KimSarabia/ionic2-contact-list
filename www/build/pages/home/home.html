@@ -5,18 +5,24 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content class="home" padding>
-
-  <ion-list no-lines>
-    <button (click)="navToAdd(friend, index);">Add Friend</button>
-
-    <ion-item #slidingItem *ngFor="let friend of friends; let index = index">
-        <ion-item text-wrap>
-          {{ friend.firstName }} {{friend.lastName}}
-        </ion-item>
-        <button (click)="navToEdit(friend, index);">Edit Friend</button>
+  <ion-list>
+      <button class = "addButton" clear large item-right (click)="navToAdd(friend, index);">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    <ion-item  no-lines #slidingItem *ngFor="let friend of friends; let index = index">
+      <div class="circular">
+        <img src="{{friend.imgUrl}}" />
+      </div>
+      <div>
+        {{friend.firstName}} {{friend.lastName}}
+      </div>
+      <div>
+        <button outline round (click)="navToEdit(friend, index);">Edit Friend</button>
+      </div>
     </ion-item>
   </ion-list>
+
+
 
 </ion-content>

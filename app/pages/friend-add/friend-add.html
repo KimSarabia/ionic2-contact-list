@@ -7,16 +7,43 @@
 <ion-content class="add" padding>
 
   <h2>Add a Friend</h2>
-  <ion-item no-lines>
-    <ion-input #firstName type="text" placeholder="First Name" ></ion-input>
-    <ion-input #lastName type="text" placeholder="Last Name" ></ion-input>
-    <ion-input #lastName type="text" placeholder="Last Name" ></ion-input>
 
+  <ion-list>
 
-    <button clear large item-right (click)="addFriend(firstName.value, lastName.value); firstName.value=''; lastName.value=''">
-      <ion-icon name="add"> </ion-icon>
-    </button>
+  <ion-item>
+    <ion-label>First Name</ion-label>
+    <ion-input  #firstName type="text"></ion-input>
   </ion-item>
+
+  <ion-item>
+    <ion-label>Last Name</ion-label>
+    <ion-input #lastName type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input #email type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Phone</ion-label>
+    <ion-input #phone type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Bio</ion-label>
+    <ion-input #bio type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Image URL</ion-label>
+    <ion-input #imgUrl type="text"></ion-input>
+  </ion-item>
+
+  <button secondary block (click)="addFriend(firstName.value, lastName.value, email.value, phone.value, bio.value, imgUrl.value); firstName.value=''; lastName.value=''; email.value=''; phone.value=''; bio.value=''; imgUrl.value='';">Add Friend</button>
+
+</ion-list>
+
   <button block (click)="navToHome(friend, index);">
     Back
   </button>

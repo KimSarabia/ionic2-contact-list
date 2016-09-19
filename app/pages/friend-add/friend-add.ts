@@ -19,15 +19,15 @@ export class FriendAddPage {
     this.index = navParams.get('index');
   }
 
-    addFriend(friendFirstName:string, friendLastName:string) {
+    addFriend(friendFirstName:string, friendLastName:string, friendEmail:string, friendPhone:string, friendBio:string, friendImgUrl:string) {
       let friend: Friend = {
         _id: 0,
         firstName: friendFirstName,
         lastName: friendLastName,
-        email: '',
-        phone: '',
-        bio: '',
-        imgUrl: ''
+        email: friendEmail,
+        phone: friendPhone,
+        bio: friendBio,
+        imgUrl: friendImgUrl
       };
 
       this.friendService.add(friend)

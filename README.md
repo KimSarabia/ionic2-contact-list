@@ -8,6 +8,8 @@ Download or git clone
 * `ionic serve`
 * `nodemon server.js`
 
+###Note: Persistence on localhost:8080 NOT localhost:8100
+
 ## Usage
 * Add Friend
 * Update Friend Info

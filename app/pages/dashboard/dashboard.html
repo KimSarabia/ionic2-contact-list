@@ -2,8 +2,9 @@
 <ion-menu [content]="mycontent">
   <ion-content>
     <ion-list>
-      <ion-item>Friends</ion-item>
-      <ion-item>Add Friend</ion-item>
+      <button ion-item (click)="navToHome(friend, index);">All Friends</button>
+      <button ion-item (click)="navToAdd(friend, index)">Add Friend</button>
+
     </ion-list>
   </ion-content>
 </ion-menu>

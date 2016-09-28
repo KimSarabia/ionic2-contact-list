@@ -1,34 +1,52 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Welcome</ion-title>
+    <ion-title center-block>Welcome</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="welcome" padding>
 
-  <ion-list>
-
-    <ion-item>
-      <ion-label fixed>First Name</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label fixed>Last Name</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label fixed>Email</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-  </ion-list>
-
-  <div padding>
-    <!-- <button primary block>Sign In</button> -->
-    <button (click)="navToDash(friend, index)">Sign In</button>
-
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-100>
+        <ion-item>
+          <ion-input type="text" placeholder="First Name"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-100>
+        <ion-item>
+          <ion-input type="text" placeholder="Last Name"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-100>
+        <ion-item>
+          <ion-input type="text" placeholder="Email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-100>
+        <ion-item>
+          <ion-input type="text" placeholder="School"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-100>
+        <ion-item>
+          <ion-input type="text" placeholder="Work"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-100>
+          <button block (click)="navToDash(friend, index)">Sign In</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

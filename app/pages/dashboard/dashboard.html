@@ -1,22 +1,11 @@
-
-<ion-menu [content]="mycontent">
-  <ion-content>
-    <ion-list>
-      <button ion-item (click)="navToHome(friend, index);">All Friends</button>
-      <button ion-item (click)="navToAdd(friend, index)">Add Friend</button>
-
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<ion-nav #mycontent [root]="rootPage"></ion-nav><ion-header>
-  <ion-navbar primary>
-    <button menuToggle><ion-icon name="menu"></ion-icon></button>
-    <ion-title>Dashboard</ion-title>
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{currentUser}}'s Dashboard
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="dashboard" padding>
-  DASHBOARD
-  {{currentUser}}
+  Hello {{currentUser}}!
 </ion-content>

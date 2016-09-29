@@ -3,6 +3,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var LocalStrategy = require('passport-local').Strategy;
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 var app = express();
 
 var mongodb = require('mongodb'),
@@ -13,7 +18,11 @@ var mongodb = require('mongodb'),
 app.use(bodyParser.json());
 app.set('port', process.env.PORT || 8080);
 app.use(cors());
+app.use(cookieParser());
 app.use(express.static("www"));
+app.use(session({ resave: true,saveUninitialized: true, secret: 'test', store: new MongoStore({ url: 'mongodb://heroku_03zcbl71:lcncgf0b8cvrebf99bsi4n554g@ds033106.mlab.com:33106/heroku_03zcbl71' }) }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://heroku_03zcbl71:lcncgf0b8cvrebf99bsi4n554g@ds033106.mlab.com:33106/heroku_03zcbl71';
 
@@ -31,6 +40,26 @@ mongoClient.connect(MONGODB_URI, function(err, database) {
   });
 });
 
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+
+passport.deserializeUser(function(_id, done) {
+  db.collection("users").findOne({_id: new ObjectID(_id)}, function (err, user) {
+    done(err, user);
+  });
+});
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    db.collection("users").findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (password !== user.password) { return done(null, false); }
+      return done(null, user);
+    });
+  }
+));
 
 app.get("/api/friends", function(req, res) {
   db.collection("friends").find({}).toArray(function(err, docs) {
@@ -40,6 +69,40 @@ app.get("/api/friends", function(req, res) {
       res.status(200).json(docs);
     }
   });
+});
+
+
+app.post("/api/users", function(req, res) {
+  db.collection("users").insert({
+    username: req.body.username,
+    password: req.body.password
+  }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to save");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
+
+app.post('/api/sessions', function(req, res){
+  passport.authenticate('local', function (err, user, info) {
+           if ((err) || (!user)) {
+               return res.status(401).json(err);
+           }
+
+           req.login(user, function (err) {
+               if (err) {
+                   return res.status(401).json(err);
+               }
+               return res.send(user);
+           });
+       })(req, res);
+});
+
+app.get('/api/sessions', function(req, res){
+  //console.log(req.isAuthenticated());
+  return res.send(req.user);
 });
 
 app.post("/api/friends", function(req, res) {

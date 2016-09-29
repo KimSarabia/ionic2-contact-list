@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {ionicBootstrap, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {WelcomePage} from './pages/welcome/welcome';
+import {SignInPage} from './pages/signin/signin';
 import {HomePage} from './pages/home/home';
 
 
@@ -11,7 +12,7 @@ import {HomePage} from './pages/home/home';
 })
 export class MyApp {
 
-  rootPage: any = WelcomePage;
+  rootPage: any = SignInPage;
 
   constructor(platform: Platform) {
     // this.rootPage = TabsPage;

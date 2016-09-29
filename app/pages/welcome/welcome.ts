@@ -1,35 +1,30 @@
 import {Component} from "@angular/core";
 import {NavController, ItemSliding, Item} from 'ionic-angular';
 import {DashboardPage} from '../dashboard/dashboard';
-import {FriendService} from '../../providers/friend-service/friend-service';
-import {Friend} from '../../friend.ts';
+import {UserService} from '../../providers/user-service/user-service';
+import {User} from '../../user.ts';
 
 @Component({
   templateUrl: 'build/pages/welcome/welcome.html',
-  providers: [FriendService]
+  providers: [UserService]
 })
 
 export class WelcomePage {
-  public friends: Friend[];
-
-  constructor(public friendService: FriendService,
+  user: any = {username: '', password: ''};
+  constructor(public userService: UserService,
               public nav: NavController) {
-    this.loadFriends();
+
   }
 
-  loadFriends() {
-    this.friendService.load()
-      .subscribe(friendList => {
-        this.friends = friendList;
-      })
-  }
-
-  navToDash(friend: Friend, index: number) {
-    this.nav.push(DashboardPage, {
-      friend: friend,
-      friends: this.friends,
-      index: index
-    });
+  signUp() {
+    let newUser: User = {
+      username: this.user.username,
+      password: this.user.password
+    };
+    this.userService.create(newUser)
+      .subscribe(user => {
+        this.nav.push(DashboardPage, {username: user.username});
+      });
   }
 }
 

@@ -10,42 +10,21 @@
     <ion-row>
       <ion-col width-100>
         <ion-item>
-          <ion-input type="text" placeholder="First Name"></ion-input>
+          <ion-input type="text" [(ngModel)]="user.username" placeholder="Username"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col width-100>
         <ion-item>
-          <ion-input type="text" placeholder="Last Name"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col width-100>
-        <ion-item>
-          <ion-input type="text" placeholder="Email"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col width-100>
-        <ion-item>
-          <ion-input type="text" placeholder="School"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col width-100>
-        <ion-item>
-          <ion-input type="text" placeholder="Work"></ion-input>
+          <ion-input type="password" [(ngModel)]="user.password" placeholder="Password"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col width-100>
-          <button block (click)="navToDash(friend, index)">Sign In</button>
+          <button block (click)="signUp()">Sign Up</button>
       </ion-col>
     </ion-row>
 

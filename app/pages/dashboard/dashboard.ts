@@ -17,10 +17,13 @@ export class DashboardPage {
   public friends: Friend[]; // The list of friends from the main page
   public index: number; // The index of the friend we're looking at
   public currentUser: any;
+  public currentEmail: any;
+
   constructor(public friendService: FriendService, public nav: NavController, public navParams: NavParams, public menuCtrl: MenuController ) {
     // this.curruser= navParams.get('friend');
     console.log(navParams);
     this.currentUser = navParams.get('username');
+    this.currentEmail = navParams.get('email');
   }
 
   openMenu() {

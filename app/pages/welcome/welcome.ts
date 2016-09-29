@@ -11,7 +11,7 @@ import {User} from '../../user.ts';
 })
 
 export class WelcomePage {
-  user: any = {username: '', password: ''};
+  user: any = {username: '', password: '', first: '', last: '', email: '', school: ''};
   constructor(public userService: UserService,
               public nav: NavController) {
 
@@ -20,7 +20,11 @@ export class WelcomePage {
   signUp() {
     let newUser: User = {
       username: this.user.username,
-      password: this.user.password
+      password: this.user.password,
+      first: this.user.first,
+      last: this.user.last,
+      email: this.user.email,
+      school: this.user.school
     };
     this.userService.create(newUser)
       .subscribe(user => {

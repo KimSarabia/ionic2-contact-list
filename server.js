@@ -75,7 +75,11 @@ app.get("/api/friends", function(req, res) {
 app.post("/api/users", function(req, res) {
   db.collection("users").insert({
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
+    first: req.body.first,
+    last: req.body.last,
+    email: req.body.email,
+    school: req.body.school
   }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to save");

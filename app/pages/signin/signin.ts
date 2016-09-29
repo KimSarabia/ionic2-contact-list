@@ -23,11 +23,15 @@ export class SignInPage {
   signIn() {
     let newUser: User = {
       username: this.user.username,
-      password: this.user.password
+      password: this.user.password,
+      first: this.user.first,
+      last: this.user.last,
+      email: this.user.email,
+      school: this.user.school
     };
     this.userService.signIn(newUser)
       .subscribe(user => {
-        this.nav.push(DashboardPage, {username: user.username});
+        this.nav.push(DashboardPage, {username: user.username, first: user.first, last: user.last, email: user.email, school: user.school});
       });
   }
 

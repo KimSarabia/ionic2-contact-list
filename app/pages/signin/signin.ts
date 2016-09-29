@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {NavController, ItemSliding, Item} from 'ionic-angular';
+import {WelcomePage} from '../welcome/welcome';
 import {DashboardPage} from '../dashboard/dashboard';
 import {UserService} from '../../providers/user-service/user-service';
 import {User} from '../../user.ts';
@@ -29,6 +30,13 @@ export class SignInPage {
         this.nav.push(DashboardPage, {username: user.username});
       });
   }
+
+  navToWelcome() {
+    this.nav.push(WelcomePage, {
+
+    });
+  }
+
 }
 
 

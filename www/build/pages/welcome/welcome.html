@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title center-block>Welcome</ion-title>
+    <ion-title center-block>Sign Up</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -25,6 +25,12 @@
     <ion-row>
       <ion-col width-100>
           <button block (click)="signUp()">Sign Up</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col width-100>
+          <button block color="danger" (click)="navToSignIn()">I Already Have An Account</button>
       </ion-col>
     </ion-row>
 

@@ -10,13 +10,12 @@
 </ion-menu>
 
 <ion-nav #mycontent [root]="rootPage"></ion-nav><ion-header>
-  <ion-navbar primary>
+  <ion-navbar>
     <button menuToggle><ion-icon name="menu"></ion-icon></button>
     <ion-title>Dashboard</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="dashboard" padding>
-  DASHBOARD
-  {{currentUser}}
+  Hello {{currentUser}}!
 </ion-content>

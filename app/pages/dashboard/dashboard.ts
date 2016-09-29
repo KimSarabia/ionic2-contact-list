@@ -9,7 +9,8 @@ import {Friend} from '../../friend.ts';
 
 @Component({
   templateUrl: 'build/pages/dashboard/dashboard.html',
-  providers: [FriendService]
+  providers: [FriendService],
+  selector:'app-menu'
 })
 export class DashboardPage {
   // public curruser: NavigatorUserMedia;    // The user itself
@@ -17,22 +18,22 @@ export class DashboardPage {
   public friends: Friend[]; // The list of friends from the main page
   public index: number; // The index of the friend we're looking at
   public currentUser: any;
-  constructor(public friendService: FriendService, public nav: NavController, public navParams: NavParams, public menuCtrl: MenuController ) {
+  constructor(public friendService: FriendService, public nav: NavController, public navParams: NavParams, public menu: MenuController ) {
     // this.curruser= navParams.get('friend');
     console.log(navParams);
     this.currentUser = navParams.get('username');
   }
 
   openMenu() {
-    this.menuCtrl.open();
+    this.menu.open();
   }
 
   closeMenu() {
-    this.menuCtrl.close();
+    this.menu.close();
   }
 
   toggleMenu() {
-    this.menuCtrl.toggle();
+    this.menu.toggle();
   }
   navToHome(friend: Friend, index: number) {
     this.nav.push(HomePage, {

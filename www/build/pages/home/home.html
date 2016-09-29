@@ -15,6 +15,11 @@
     <ion-row>
       <ion-col width-100>
         <!-- no-lines #slidingItem  -->
+        <ion-buttons start round (click)="navToAdd(friend, index);">
+          <button ion-button icon-only>
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-buttons>
         <ion-item *ngFor="let friend of friends; let index = index">
           <div class="circular">
             <img src="{{friend.imgUrl}}" />

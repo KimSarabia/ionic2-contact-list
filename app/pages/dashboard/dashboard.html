@@ -9,7 +9,8 @@
   </ion-content>
 </ion-menu>
 
-<ion-nav #mycontent [root]="rootPage"></ion-nav><ion-header>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
+<ion-header>
   <ion-navbar>
     <button menuToggle><ion-icon name="menu"></ion-icon></button>
     <ion-title>Dashboard</ion-title>
@@ -18,4 +19,20 @@
 
 <ion-content class="dashboard" padding>
   Hello {{currentUser}}!
+
+<ion-grid>
+  <ion-row>
+    <ion-col width-100>
+        <button block (click)="navToHome(friend, index);">See My Friends</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col width-100>
+        <button block (click)="navToAdd(friend, index);">Add A Friend</button>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+
 </ion-content>
